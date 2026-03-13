@@ -1,6 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
+const genAI = new GoogleGenerativeAI('AIzaSyAYXrXQBRlbO_cXOJ0a6fPUxYfQ89AkexU');
 
 export async function analyzeRepository(files: { name: string; path: string; content: string }[]) {
   
@@ -44,3 +44,8 @@ ${repoContext}
 
   return response.text();
 }
+
+
+
+
+
