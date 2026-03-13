@@ -40,3 +40,24 @@
 .read-the-docs {
   color: #888;
 }
+
+
+@keyframes gradient-bg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.glass-card {
+  background: rgba(24, 24, 27, 0.6);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.animate-gradient {
+  background: linear-gradient(-45deg, #3b82f6, #10b981, #6366f1, #06b6d4);
+  background-size: 400% 400%;
+  animation: gradient-bg 15s ease infinite;
+}
