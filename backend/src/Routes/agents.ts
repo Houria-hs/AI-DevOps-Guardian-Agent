@@ -1,28 +1,33 @@
-import { Router } from "express";
-import { run as runDevOps } from "../Agents/devopsRiskAgent";
+import { Router, Request, Response } from "express";
+import { orchestrateFullAudit } from "../services/orchestrator";
 
 const router = Router();
 
-router.get("/", async (req, res) => {
-  const { owner, repo } = req.query as { owner?: string; repo?: string };
+router.post("/analyze", async (req: Request, res: Response) => {
+    
 
-  if (!owner || !repo) {
-    return res.status(400).json({ error: "owner & repo query params required" });
-  }
+    const owner = req.body.owner?.trim();
+    const repo = req.body.repo?.trim();
 
-  try {
-    // For now, only DevOps agent
-    const devOpsResult = await runDevOps(owner, repo);
+    if (!owner || !repo) {
+        return res.status(400).json({ error: "Owner and Repo are required." });
+    }
 
-    res.json({
-      agents: {
-        devOps: devOpsResult
-      }
-    });
-  } catch (error: any) {
-    res.status(500).json({ error: error.message });
-  }
+    try {
+        console.log(`[Azure AI Foundry] Initiating multi-agent audit for: ${owner}/${repo}`);
+        const results = await orchestrateFullAudit(owner, repo);        
+        res.setHeader("X-Audit-Engine", "Azure-OpenAI-GPT4o");
+        res.json(results);
+    } catch (error: any) {
+        console.error("❌ AZURE ORCHESTRATION ERROR:", error.stack);
+        res.status(500).json({ 
+            error: "Audit failed", 
+            details: error.message 
+        });
+    }
 });
 
 export default router;
+
+
 

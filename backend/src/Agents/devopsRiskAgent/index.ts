@@ -1,55 +1,27 @@
-
-import {
-  fetchRepoContents,
-  filterImportantFiles,
-  fetchFileContent
-} from "../../services/githubService";
-import { analyzeRepository } from "../../services/llmService";
+import { getAzureCompletion } from "../../services/azureClient";
+import { getRepositoryContext } from "../../services/repositoryService";
+import { buildDevOpsPrompt } from "./prompt";
 
 export async function run(owner: string, repo: string) {
-  // 1️⃣ Fetch full repository tree
-  const allFiles = await fetchRepoContents(owner, repo);
+  // 1. Fetch repository context 
+  const filesWithContent = await getRepositoryContext(owner, repo, 8);
 
-  // 2️⃣ Filter important DevOps-related files
-  const importantFiles = filterImportantFiles(allFiles);
+  // 2. Build the prompt
+  const prompt = buildDevOpsPrompt(filesWithContent);
 
-  // 3️⃣ Prioritize strategic files
-  const strategicFiles = [];
-  const otherFiles = [];
+  // 3. Define the Persona for the System Message
+  const systemMessage = "You are an elite DevOps Security and Architecture AI Agent. You strictly output valid JSON.";
 
-  for (const file of importantFiles) {
-    if (
-      file.name === "package.json" ||
-      file.name === "Dockerfile" ||
-      file.path.startsWith(".github/workflows/")
-    ) {
-      strategicFiles.push(file);
-    } else {
-      otherFiles.push(file);
-    }
-  }
-
-  // 4️⃣ Limit total files to avoid token overflow
-  const MAX_FILES = 8;
-  const selectedFiles = [
-    ...strategicFiles,
-    ...otherFiles.slice(0, MAX_FILES - strategicFiles.length)
-  ].slice(0, MAX_FILES);
-
-  // 5️⃣ Fetch file contents
-  const filesWithContent = [];
-  for (const file of selectedFiles) {
-    if (!file.download_url) continue;
-    const content = await fetchFileContent(file.download_url);
-    filesWithContent.push({ name: file.name, path: file.path, content });
-  }
-
-  // 6️⃣ Send to Gemini agent
-  const analysis = await analyzeRepository(filesWithContent);
+  // 4. Call Azure 
+  const analysis = await getAzureCompletion(systemMessage, prompt);
 
   return {
     repository: `${owner}/${repo}`,
     analyzedFiles: filesWithContent.length,
-    analysis
+    analysis: {
+      ...analysis,
+      overallRiskScore: analysis.overallRiskScore || 0,
+      summary: analysis.summary || "Security scan completed with no summary."
+    }
   };
 }
