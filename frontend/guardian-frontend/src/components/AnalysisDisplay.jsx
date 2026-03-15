@@ -40,7 +40,7 @@ const sections = {
     ],
     cicd: [
       { title: "Pipeline Analysis", items: data.llmFindings || [] },
-      { title: "Static Checks", items: data.staticFindings || [] }, // Added this to show your static logic!
+      { title: "Static Checks", items: data.staticFindings || [] }, 
     ]
   };
 
