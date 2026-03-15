@@ -7,26 +7,17 @@ dotenv.config();
 
 const app = express();
 
-// app.use(cors({
-//     origin: (origin, callback) => {
-//         const allowedOrigins = [
-//             'https://gentle-field-0c500fe1e.4.azurestaticapps.net',
-//             'http://localhost:3000',
-//             'http://localhost:5173'
-//         ];
-//         // Allow requests with no origin (like mobile apps or curl) 
-//         // or check if origin is in the allowed list
-//         if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-//             callback(null, true);
-//         } else {
-//             callback(new Error('Not allowed by CORS'));
-//         }
-//     },
-//     methods: ['GET', 'POST', 'OPTIONS'],
-//     allowedHeaders: ['Content-Type', 'Authorization'],
-//     credentials: true,
-//     optionsSuccessStatus: 200 
-// }));
+app.use(cors({
+    origin: [
+        process.env.FRONTEND_URL || '',
+        'http://localhost:3000',
+        'http://localhost:5173'
+    ],
+    
+    methods: ['GET', 'POST','OPTIONS'], 
+    allowedHeaders: ['Content-Type', 'Authorization'] ,
+    credentials: true
+}));
 
 app.options('*', cors());
 
