@@ -13,7 +13,7 @@ app.use(cors({
         'http://localhost:3000',
         'http://localhost:5173'
     ],
-    methods: ['GET', 'POST'], 
+    methods: ['GET', 'POST', 'OPTIONS'], 
     allowedHeaders: ['Content-Type', 'Authorization'] 
 }));
 
