@@ -8,7 +8,11 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: [process.env.FRONTEND_URL || '', 'http://localhost:3000'],
+    origin: [
+        "https://gentle-field-0c500fe1e.4.azurestaticapps.net",
+        'http://localhost:3000',
+        'http://localhost:5173'
+    ],
     methods: ['GET', 'POST'], 
     allowedHeaders: ['Content-Type', 'Authorization'] 
 }));
