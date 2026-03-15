@@ -12,6 +12,8 @@ function App() {
   const [activeTab, setActiveTab] = useState("devOps"); 
   const [status, setStatus] = useState(""); 
 
+  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 
 const handleAnalyze = async () => {
   if (!owner || !repo) return;
@@ -24,7 +26,7 @@ const handleAnalyze = async () => {
 
   try {
     // 2. Start the REAL backend process
-    const analyzePromise = fetch('http://localhost:5000/api/agents/analyze', {
+    const analyzePromise = fetch(`${API_BASE_URL}/api/agents/analyze`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ owner: owner.trim(), repo: repo.trim() })
