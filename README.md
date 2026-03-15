@@ -152,6 +152,8 @@ Create a `.env` file:
 ```
 AZURE_OPENAI_KEY=your_key
 AZURE_OPENAI_ENDPOINT=your_endpoint
+# If using specific deployments:
+AZURE_OPENAI_DEPLOYMENT_NAME=your_deployment_name
 ```
 
 Run the server:
@@ -170,12 +172,21 @@ npm install
 npm run dev
 ```
 
+Create a `.env` file:
+```
+# For local development:
+VITE_API_URL=http://localhost:5000
+
+# For production (Azure App Service):
+ VITE_API_URL=[https://your-backend-service.azurewebsites.net](https://your-backend-service.azurewebsites.net)
+```
+
 ---
 
 # 🚀 Microsoft Technologies Used
 
 ### Azure AI Foundry
-Agent orchestration and model management.
+Implemented using a custom Agent Orchestration Layer to manage parallel processing and structured output from multiple LLM personas.
 
 ### Azure OpenAI Service
 Powering the reasoning engine behind architectural audits.
@@ -188,10 +199,7 @@ Used for repository metadata, workflows, and dependency analysis.
 # 🎥 Demo & Submission
 
 🎬 **Video Walkthrough**  
-[2-Minute Demo Video]
-
-📄 **Project Documentation**  
-[Submission Portal Link]
+(https://youtu.be/QrVwVdGaFT0)
 
 ---
 
@@ -202,7 +210,7 @@ Used for repository metadata, workflows, and dependency analysis.
 **Full-Stack Developer & AI Enthusiast**
 
 - GitHub Profile: https://github.com/Houria-hs
-- LinkedIn: 
+- Microsoft Learn Username: Houria Hasbellaoui
 
 ---
 
