@@ -10,12 +10,15 @@ const app = express();
 app.use(cors({
     origin: [
         "https://gentle-field-0c500fe1e.4.azurestaticapps.net",
+        "https://gentle-field-0c500fe1e.4.azurestaticapps.net/", // with slash
         'http://localhost:3000',
         'http://localhost:5173'
     ],
     methods: ['GET', 'POST', 'OPTIONS'], 
     allowedHeaders: ['Content-Type', 'Authorization'] 
 }));
+
+app.options('*', cors());
 
 app.use(express.json());
 
