@@ -7,16 +7,15 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors({
-    origin: [
-        "https://gentle-field-0c500fe1e.4.azurestaticapps.net",
-        "https://gentle-field-0c500fe1e.4.azurestaticapps.net/", // with slash
-        'http://localhost:3000',
-        'http://localhost:5173'
-    ],
-    methods: ['GET', 'POST', 'OPTIONS'], 
-    allowedHeaders: ['Content-Type', 'Authorization'] 
-}));
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "https://gentle-field-0c500fe1e.4.azurestaticapps.net");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    if (req.method === 'OPTIONS') {
+        res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+        return res.status(200).json({});
+    }
+    next();
+});
 
 app.options('*', cors());
 
