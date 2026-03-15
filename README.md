@@ -1,8 +1,8 @@
 # 🛡️ DevOps Guardian
 
 ![Hackathon](https://img.shields.io/badge/Microsoft-Hackathon-blue?style=for-the-badge&logo=microsoft)
-[![Microsoft AI Dev Days](https://img.shields.io/badge/Hackathon-Microsoft_AI_Dev_Days-blue?logo=microsoft)](https://innovationstudio.microsoft.com/)
-[![GitHub Copilot](https://img.shields.io/badge/Built_with-GitHub_Copilot-8E44AD?logo=github-copilot&logoColor=white)](https://github.com/features/copilot)
+[![Microsoft AI Dev Days](https://img.shields.io/badge/Hackathon-Microsoft_AI_Dev_Days-blue?style=for-the-badge&logo=microsoft)](https://innovationstudio.microsoft.com/)
+[![GitHub Copilot](https://img.shields.io/badge/Built_with-GitHub_Copilot-8E44AD?style=for-the-badge&logo=github&logoColor=white)](https://github.com/features/copilot)
 ![Azure AI](https://img.shields.io/badge/Azure-AI%20Foundry-0078D4?style=for-the-badge&logo=microsoftazure)
 ![OpenAI](https://img.shields.io/badge/Azure-OpenAI-412991?style=for-the-badge&logo=openai)
 ![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)
