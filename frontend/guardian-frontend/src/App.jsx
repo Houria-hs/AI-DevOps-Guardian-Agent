@@ -13,7 +13,7 @@ function App() {
   const [status, setStatus] = useState(""); 
 
 
-  const API_BASE_URL = import.meta.env.VITE_API_URL;
+  const API_BASE_URL = 'https://devopsguardian-a8hxcdethueecmh3.canadacentral-01.azurewebsites.net';
 
 
 const handleAnalyze = async () => {
