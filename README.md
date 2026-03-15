@@ -152,8 +152,6 @@ Create a `.env` file:
 ```
 AZURE_OPENAI_KEY=your_key
 AZURE_OPENAI_ENDPOINT=your_endpoint
-# If using specific deployments:
-AZURE_OPENAI_DEPLOYMENT_NAME=your_deployment_name
 ```
 
 Run the server:
@@ -170,15 +168,6 @@ npm start
 cd frontend
 npm install
 npm run dev
-```
-
-Create a `.env` file:
-```
-# For local development:
-VITE_API_URL=http://localhost:5000
-
-# For production (Azure App Service):
- VITE_API_URL=[https://your-backend-service.azurewebsites.net](https://your-backend-service.azurewebsites.net)
 ```
 
 ---
