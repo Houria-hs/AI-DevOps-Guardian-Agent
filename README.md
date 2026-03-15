@@ -7,6 +7,7 @@
 ![OpenAI](https://img.shields.io/badge/Azure-OpenAI-412991?style=for-the-badge&logo=openai)
 ![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)
 ![Node](https://img.shields.io/badge/Node.js-Backend-green?style=for-the-badge&logo=node.js)
+![Version](https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge)
 
 ### Multi-Agent AI Orchestration for Secure & Scalable Architecture
 
@@ -204,3 +205,4 @@ Used for repository metadata, workflows, and dependency analysis.
 ---
 
 ✨ **DevOps Guardian turns repository chaos into architectural clarity.**
+
