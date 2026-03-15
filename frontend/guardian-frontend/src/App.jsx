@@ -12,7 +12,8 @@ function App() {
   const [activeTab, setActiveTab] = useState("devOps"); 
   const [status, setStatus] = useState(""); 
 
-  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 
 const handleAnalyze = async () => {
