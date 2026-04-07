@@ -55,5 +55,5 @@ jobs:
         with:
           app-name: 'DevOpsGuardian'
           slot-name: 'Production'
-          package: .
+          package: ./backend
           
