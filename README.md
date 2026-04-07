@@ -1,12 +1,13 @@
 # 🛡️ DevOps Guardian
 
 ![Hackathon](https://img.shields.io/badge/Microsoft-Hackathon-blue?style=for-the-badge&logo=microsoft)
-[![Microsoft AI Dev Days](https://img.shields.io/badge/Hackathon-Microsoft_AI_Dev_Days-blue?logo=microsoft)](https://innovationstudio.microsoft.com/)
-[![GitHub Copilot](https://img.shields.io/badge/Built_with-GitHub_Copilot-8E44AD?logo=github-copilot&logoColor=white)](https://github.com/features/copilot)
+[![Microsoft AI Dev Days](https://img.shields.io/badge/Hackathon-Microsoft_AI_Dev_Days-blue?style=for-the-badge&logo=microsoft)](https://innovationstudio.microsoft.com/)
+[![GitHub Copilot](https://img.shields.io/badge/Built_with-GitHub_Copilot-8E44AD?style=for-the-badge&logo=github&logoColor=white)](https://github.com/features/copilot)
 ![Azure AI](https://img.shields.io/badge/Azure-AI%20Foundry-0078D4?style=for-the-badge&logo=microsoftazure)
 ![OpenAI](https://img.shields.io/badge/Azure-OpenAI-412991?style=for-the-badge&logo=openai)
 ![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)
 ![Node](https://img.shields.io/badge/Node.js-Backend-green?style=for-the-badge&logo=node.js)
+![Version](https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge)
 
 ### Multi-Agent AI Orchestration for Secure & Scalable Architecture
 
@@ -152,8 +153,6 @@ Create a `.env` file:
 ```
 AZURE_OPENAI_KEY=your_key
 AZURE_OPENAI_ENDPOINT=your_endpoint
-# If using specific deployments:
-AZURE_OPENAI_DEPLOYMENT_NAME=your_deployment_name
 ```
 
 Run the server:
@@ -170,15 +169,6 @@ npm start
 cd frontend
 npm install
 npm run dev
-```
-
-Create a `.env` file:
-```
-# For local development:
-VITE_API_URL=http://localhost:5000
-
-# For production (Azure App Service):
- VITE_API_URL=[https://your-backend-service.azurewebsites.net](https://your-backend-service.azurewebsites.net)
 ```
 
 ---
@@ -215,3 +205,4 @@ Used for repository metadata, workflows, and dependency analysis.
 ---
 
 ✨ **DevOps Guardian turns repository chaos into architectural clarity.**
+
