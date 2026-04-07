@@ -38,6 +38,7 @@ const handleAnalyze = async () => {
       { msg: " Quality Agent: Checking Maintainability...", delay: 6000 },
       { msg: " CI/CD Agent: Verifying Pipelines...", delay: 11000 },
       { msg: " Finalizing Audit Report...", delay: 16000 }
+
     ];
 
     const timers = statusSteps.map(step => 
@@ -78,7 +79,7 @@ const handleAnalyze = async () => {
         </header>
 
         {/* Input Form */}
-        <div className="relative group max-w-4xl mx-auto mb-16">
+        <div className="relative group max-w-4xl mx-auto mb-16 ">
           <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
   <div className="relative flex items-center gap-0 bg-zinc-900 rounded-2xl border border-zinc-800 p-2">
     <div className="flex-1 flex items-center px-4">
@@ -174,7 +175,7 @@ const handleAnalyze = async () => {
         {analysis && (
           <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
                           {/* Summary Cards Row */}
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
               <HealthCard 
                 title="Security" 
                 score={analysis.agents?.devOps?.analysis?.overallRiskScore || 0} 

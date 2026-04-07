@@ -24,7 +24,7 @@ const HealthCard = ({ title, score, type, active, onClick }) => {
   return (
     <button 
       onClick={onClick}
-      className={`relative flex-1 p-6 rounded-3xl border transition-all duration-500 group overflow-hidden ${
+      className={`relative flex-1 min-w-[220px]  p-6 rounded-3xl border transition-all duration-500 group overflow-hidden ${
         active ? `bg-gradient-to-br ${colorClass} ring-2 ring-white/10 scale-105 shadow-2xl` : 
         'bg-zinc-900/40 border-zinc-800 hover:border-zinc-600'
       }`}
